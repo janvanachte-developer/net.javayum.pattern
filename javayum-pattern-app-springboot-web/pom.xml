@@ -3,27 +3,20 @@
          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <parent>
-        <artifactId>javayum</artifactId>
+        <artifactId>javayum-pattern-app-springboot</artifactId>
         <groupId>javayum</groupId>
         <version>1.0-SNAPSHOT</version>
+        <relativePath>../javayum-pattern-app-springboot/pom.xml</relativePath>
     </parent>
     <modelVersion>4.0.0</modelVersion>
 
-    <artifactId>javayum-pattern-app-springboot</artifactId>
-    <packaging>pom</packaging>
-    <modules>
-        <module>../javayum-pattern-app-springboot-web</module>
-    </modules>
-
-    <properties>
-        <org.springframework.boot.version>1.5.4.RELEASE</org.springframework.boot.version>
-    </properties>
+    <artifactId>javayum-pattern-app-springboot-web</artifactId>
 
     <dependencyManagement>
         <dependencies>
             <dependency>
                 <groupId>org.springframework.boot</groupId>
-                <artifactId>spring-boot-autoconfigure</artifactId>
+                <artifactId>spring-boot-starter-web</artifactId>
                 <version>${org.springframework.boot.version}</version>
             </dependency>
         </dependencies>
@@ -32,9 +25,14 @@
     <dependencies>
         <dependency>
             <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-autoconfigure</artifactId>
+            <artifactId>spring-boot-starter-web</artifactId>
+        </dependency>
+
+        <dependency>
+            <groupId>javayum</groupId>
+            <artifactId>javayum-pattern-ws-spring</artifactId>
+            <version>1.0-SNAPSHOT</version>
         </dependency>
     </dependencies>
-
 
 </project>

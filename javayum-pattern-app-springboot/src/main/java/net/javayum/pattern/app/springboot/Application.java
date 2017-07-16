@@ -21,6 +21,7 @@ import org.slf4j.LoggerFactory;
 public class Application {
 
     private static final String SPRING_PROFILE_DEFAULT = "spring.profiles.default";
+    private static final String SPRING_PROFILE_ACTIVE = "spring.profiles.active";
     private static final String SPRING_PROFILE_DEVELOPMENT = "net.javayum.common.infra.spring.profile.development";
     private static final String SPRING_PROFILE_PRODUCTION = "net.javayum.common.infra.,spring.profile.production";
 
@@ -40,13 +41,19 @@ public class Application {
                 .sources(Application.class)
                 .build();
 
-        setDefaultProfile(springApplication, SPRING_PROFILE_DEVELOPMENT);
-
         applicationContext = springApplication.run(args);
 
+        // applicztion.properties is read by defaultr
         Environment environment = applicationContext.getEnvironment();
         logger.info(environment.getProperty("net.javayum.pattern.app.springboot.property"));
+
+        //active profiles are set in application.properties
+        Collection<String> profiles = Arrays.asList(environment.getActiveProfiles());
+        for (String profile : profiles) {
+            logger.info("Profie '{}' is active", profile);
+        }
     }
+
 
     //optional
     public Application(Environment environment) {
@@ -57,17 +64,11 @@ public class Application {
     //optional
     @PostConstruct
     public void checkProfiles() {
-        Collection<String> activeProfiles = Arrays.asList(environment.getActiveProfiles());
-        if (activeProfiles.contains(SPRING_PROFILE_DEVELOPMENT) && activeProfiles.contains(SPRING_PROFILE_PRODUCTION)) {
+        Collection<String> profiles = Arrays.asList(environment.getActiveProfiles());
+        if (profiles.contains(SPRING_PROFILE_DEVELOPMENT) && profiles.contains(SPRING_PROFILE_PRODUCTION)) {
             logger.error("You have misconfigured your application! It should not run " +
                     "with both the 'dev' and 'prod' profiles at the same time.");
         }
-    }
-
-    public static void setDefaultProfile(SpringApplication springApplication, String profile) {
-        Map<String, Object> properties = new HashMap<>();
-        properties.put(SPRING_PROFILE_DEFAULT, SPRING_PROFILE_DEVELOPMENT);
-        springApplication.setDefaultProperties(properties);
     }
 }
 
