@@ -9,12 +9,7 @@
     </parent>
     <modelVersion>4.0.0</modelVersion>
 
-    <artifactId>javayum-pattern-ws</artifactId>
-    <packaging>pom</packaging>
-    <modules>
-        <module>../javayum-pattern-ws-spring</module>
-        <module>../javayum-pattern-ws-rest-spring</module>
-    </modules>
+    <artifactId>javayum-pattern-domain</artifactId>
 
 
 </project>

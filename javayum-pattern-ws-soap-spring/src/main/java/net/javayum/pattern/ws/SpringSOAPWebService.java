@@ -7,11 +7,11 @@ import org.springframework.ws.server.endpoint.annotation.ResponsePayload;
 
 // https://spring.io/guides/gs/producing-web-service/
 @Endpoint
-public class SpringSOAPWebService<Object> implements WebService {
+public class SpringSOAPWebService implements WebService<Object, Object> {
 
     @Override
     @ResponsePayload
-    public java.lang.Object execute(@RequestPayload java.lang.Object request) {
+    public java.lang.Object read(@RequestPayload java.lang.Object request) {
 
         java.lang.Object response;
 

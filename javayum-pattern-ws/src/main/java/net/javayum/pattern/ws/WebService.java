@@ -1,6 +1,6 @@
 package net.javayum.pattern.ws;
 
-public interface WebService<REQUEST, RESPONSE> {
+public interface WebService<ID, RESPONSE> {
 
-    RESPONSE execute(REQUEST request);
+    RESPONSE read(ID id);
 }
