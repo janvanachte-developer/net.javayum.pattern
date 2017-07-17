@@ -1,8 +1,8 @@
 @javax.xml.bind.annotation.XmlSchema(
-		namespace="http://javayum.net/Header",																												
+		namespace="http://javayum.net/header",
 		elementFormDefault=javax.xml.bind.annotation.XmlNsForm.QUALIFIED,
 		xmlns={
-				@javax.xml.bind.annotation.XmlNs(namespaceURI="http://javayum.net/Header", prefix="header") 
+				@javax.xml.bind.annotation.XmlNs(namespaceURI="http://javayum.net/header", prefix="header")
 			}
 		)
 

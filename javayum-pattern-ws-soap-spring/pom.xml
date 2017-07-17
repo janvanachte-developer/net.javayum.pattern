@@ -23,16 +23,21 @@
                 <artifactId>spring-ws-core</artifactId>
                 <version>${org.springframework.ws.version}</version>
             </dependency>
-            <dependency>
-                <groupId>javax.servlet</groupId>
-                <artifactId>javax.servlet-api</artifactId>
-                <version>${javax.servlet.version}</version>
-                <scope>provided</scope>
-            </dependency>
         </dependencies>
     </dependencyManagement>
 
     <dependencies>
+        <dependency>
+            <groupId>javayum</groupId>
+            <artifactId>javayum-pattern-ws</artifactId>
+            <version>${project.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot</artifactId>
+            <version>1.4.6.RELEASE</version>
+        </dependency>
+
         <dependency>
             <groupId>org.springframework.ws</groupId>
             <artifactId>spring-ws-core</artifactId>
@@ -40,12 +45,6 @@
         <dependency>
             <groupId>javax.servlet</groupId>
             <artifactId>javax.servlet-api</artifactId>
-        </dependency>
-
-        <dependency>
-            <groupId>javayum</groupId>
-            <artifactId>javayum-pattern-ws</artifactId>
-            <version>${project.version}</version>
         </dependency>
     </dependencies>
 </project>

@@ -15,6 +15,7 @@
         <module>javayum-pattern-ws-soap-spring</module>
         <module>javayum-pattern-app-springboot</module>
         <module>javayum-pattern-app-springboot-web</module>
+        <module>javayum-pattern-app-war</module>
     </modules>
 
     <properties>
@@ -22,12 +23,14 @@
         <org.springframework.version>4.3.9.RELEASE</org.springframework.version>
         <org.springframework.boot.version>1.5.4.RELEASE</org.springframework.boot.version>
         <javax.servlet.version>3.1.0</javax.servlet.version>
+        <failOnMissingWebXml>false</failOnMissingWebXml>
         <maven.compiler.source>1.8</maven.compiler.source>
         <maven.compiler.target>1.8</maven.compiler.target>
     </properties>
 
     <dependencyManagement>
     <dependencies>
+
         <dependency>
             <!-- includes org.slf4j.api and log4j2.api -->
             <groupId>org.apache.logging.log4j</groupId>
@@ -39,6 +42,14 @@
             <artifactId>log4j-core</artifactId>
             <version>${org.apache.logging.log4j.version}</version>
         </dependency>
+
+        <dependency>
+            <groupId>javax.servlet</groupId>
+            <artifactId>javax.servlet-api</artifactId>
+            <version>${javax.servlet.version}</version>
+            <scope>provided</scope>
+        </dependency>
+
     </dependencies>
     </dependencyManagement>
 
@@ -52,6 +63,7 @@
             <artifactId>log4j-core</artifactId>
         </dependency>
     </dependencies>
+
 
 
 </project>

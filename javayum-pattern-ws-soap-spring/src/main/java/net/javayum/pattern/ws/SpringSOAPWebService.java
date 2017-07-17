@@ -9,7 +9,10 @@ import org.springframework.ws.server.endpoint.annotation.ResponsePayload;
 @Endpoint
 public class SpringSOAPWebService implements WebService<Object, Object> {
 
+    private static final String TARGET_NAMESPACE = "http://javayum.net/header";
+
     @Override
+    @PayloadRoot(localPart = "HeaderRequest", namespace = TARGET_NAMESPACE)
     @ResponsePayload
     public java.lang.Object read(@RequestPayload java.lang.Object request) {
 
