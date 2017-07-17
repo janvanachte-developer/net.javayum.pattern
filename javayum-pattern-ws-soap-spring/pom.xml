@@ -3,14 +3,14 @@
          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <parent>
-        <artifactId>javayum-pattern-ws</artifactId>
+        <artifactId>javayum-pattern</artifactId>
         <groupId>javayum</groupId>
         <version>1.0-SNAPSHOT</version>
-        <relativePath>../javayum-pattern-ws/pom.xml</relativePath>
     </parent>
+
     <modelVersion>4.0.0</modelVersion>
 
-    <artifactId>javayum-pattern-ws-spring</artifactId>
+    <artifactId>javayum-pattern-ws-soap-spring</artifactId>
 
     <properties>
         <org.springframework.ws.version>2.4.0.RELEASE</org.springframework.ws.version>
@@ -23,6 +23,12 @@
                 <artifactId>spring-ws-core</artifactId>
                 <version>${org.springframework.ws.version}</version>
             </dependency>
+            <dependency>
+                <groupId>javax.servlet</groupId>
+                <artifactId>javax.servlet-api</artifactId>
+                <version>${javax.servlet.version}</version>
+                <scope>provided</scope>
+            </dependency>
         </dependencies>
     </dependencyManagement>
 
@@ -34,19 +40,12 @@
         <dependency>
             <groupId>javax.servlet</groupId>
             <artifactId>javax.servlet-api</artifactId>
-            <version>3.1.0</version>
-            <scope>provided</scope>
         </dependency>
 
         <dependency>
             <groupId>javayum</groupId>
             <artifactId>javayum-pattern-ws</artifactId>
-            <version>1.0-SNAPSHOT</version>
-        </dependency>
-        <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot</artifactId>
-            <version>RELEASE</version>
+            <version>${project.version}</version>
         </dependency>
     </dependencies>
 </project>
